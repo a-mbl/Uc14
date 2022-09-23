@@ -24,15 +24,11 @@ public class PageHome {
 	
 	@Test
 	public void testNavegarPaginaHome() {
-		System.setProperty("webdriver.chrome.driver", System.getenv("Driver"));
-		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		driver.get("https://online.sp.senai.br/");
+		driver.get("http://localhost:4200/");
+		driver.findElement(By.id("idcadastro")).click();
+		driver.findElement(By.id("email")).sendKeys("adriano@email.com");
+		driver.findElement(By.id("senha")).sendKeys("senhadoadriano");
+		driver.findElement(By.id("senha")).sendKeys(Keys.ENTER);
 	}
 	
-	
-	@After
-	public void fechar() {
-		driver.close();
-	}
 }
